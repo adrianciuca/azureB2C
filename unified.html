@@ -54,20 +54,65 @@
             z-index: 10;
         }
 
-        #api {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 2rem;
+        .logo {
+            margin-bottom: 3rem;
         }
 
-        .companyLogo {
-            display: none;
+        .logo img {
+            width: 48px;
+            height: 48px;
+        }
+
+        .steps {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.6;
+        }
+
+        .step-item.active {
+            opacity: 1;
+        }
+
+        .step-number {
+            background: var(--primary-blue);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .step-text {
+            font-size: 14px;
+        }
+
+        .step-text small {
+            display: block;
+            color: var(--text-gray);
+            margin-top: 0.25rem;
+        }
+
+        #api {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
         }
 
         /* Form Styles */
         #api h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 24px;
+            margin-bottom: 1rem;
         }
 
         #api .intro {
@@ -76,13 +121,14 @@
         }
 
         #api .entry-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         #api label {
             display: block;
-            margin-bottom: 0.5rem;
+            font-size: 14px;
             color: #374151;
+            margin-bottom: 0.5rem;
         }
 
         #api input[type="text"],
@@ -92,32 +138,54 @@
             padding: 0.75rem;
             border: 1px solid #E5E7EB;
             border-radius: 4px;
-            font-size: 1rem;
+            font-size: 14px;
+            margin-bottom: 0.25rem;
         }
 
         #api .buttons {
+            display: flex;
+            justify-content: space-between;
             margin-top: 2rem;
-            text-align: right;
         }
 
         #api .buttons button {
-            background: var(--primary-blue);
-            color: white;
             padding: 0.75rem 2rem;
-            border: none;
+            font-size: 14px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1rem;
+            border: none;
+        }
+
+        #api .buttons button[type="submit"] {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        #api .buttons button[type="button"] {
+            background: #E5E7EB;
+            color: #374151;
         }
 
         #api .buttons button:hover {
-            background: #1565C0;
+            opacity: 0.9;
         }
 
         .error {
             color: #DC2626;
             margin-top: 0.25rem;
             font-size: 0.875rem;
+        }
+
+        .helpLink {
+            font-size: 14px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.25rem;
+        }
+
+        .companyLogo {
+            display: none;
         }
     </style>
 </head>
@@ -128,7 +196,7 @@
     <div class="panel" id="panel">
         <div class="sidebar">
             <div class="logo">
-                <img src="https://adrianciuca.github.io/azureB2C/logo.png" alt="ContaDeal" width="120">
+                <img src="https://adrianciuca.github.io/azureB2C/logo.png" alt="ContaDeal">
             </div>
             <ul class="steps">
                 <li class="step-item active">

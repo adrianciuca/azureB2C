@@ -54,14 +54,43 @@
             z-index: 10;
         }
 
+        .logo {
+            margin-bottom: 3rem;
+        }
+
+        .steps {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.6;
+        }
+
+        .step-item.active {
+            opacity: 1;
+        }
+
+        .step-number {
+            background: var(--primary-blue);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
         #api {
             max-width: 800px;
             margin: 2rem auto;
             padding: 0 2rem;
-        }
-
-        .companyLogo {
-            display: none;
         }
 
         /* Form Styles */
@@ -136,6 +165,27 @@
                     <div class="step-text">
                         <div>Date utilizator</div>
                         <small>Completati setarile utilizatorului</small>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <div>Date firma</div>
+                        <small>Completati datele firmei</small>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <div>Setari facturare</div>
+                        <small>Configurare rapida</small>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <div>Confirmare</div>
+                        <small>Confirma telefonul/adresa de email</small>
                     </div>
                 </li>
             </ul>

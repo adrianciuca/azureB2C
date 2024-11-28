@@ -157,12 +157,12 @@
         #api input[type="email"],
         #api input[type="tel"] {
             width: 100%;
-            padding: 0.25rem 0.5rem;
+            padding: 0.25rem 0.75rem;
             border: 1px solid var(--light-gray);
             border-radius: 4px;
             font-size: 14px;
             background-color: var(--light-gray);
-            height: 10px;
+            height: 24px;
         }
 
         /* Labels */
@@ -189,16 +189,30 @@
         /* Buttons */
         #api .buttons {
             display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
+            justify-content: space-between;
             margin-top: 2rem;
         }
 
         #api .buttons button {
             padding: 0.75rem 2rem;
-            border-radius: 4px;
             font-size: 14px;
+            border-radius: 4px;
             cursor: pointer;
+            border: none;
+        }
+
+        #api .buttons button[type="submit"] {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        #api .buttons button[type="button"] {
+            background: #E5E7EB;
+            color: #374151;
+        }
+
+        #api .buttons button:hover {
+            opacity: 0.9;
         }
 
         .error {

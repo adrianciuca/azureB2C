@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+<head>
+    <title>ContaDeal</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="locale" content="ro-RO">
+    <meta name="ROBOTS" content="NONE, NOARCHIVE">
+    <meta name="GOOGLEBOT" content="NOARCHIVE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    
+    <style id="common">
+        /* Following are generated styles via gulp. */
+        /* inject: css */
+        /* endinject */
+    </style>
+    
+    <style>
+        :root {
+            --primary-blue: #1976D2;
+            --dark-bg: #1E2231;
+            --text-gray: #6B7280;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        #background_branding_container {
+            display: none;
+        }
+
+        #panel {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .panel_layout {
+            margin-left: 280px;
+            width: calc(100% - 280px);
+        }
+
+        .sidebar {
+            width: 280px;
+            background: var(--dark-bg);
+            padding: 2rem;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 10;
+        }
+
+        #api {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .companyLogo {
+            display: none;
+        }
+
+        /* Form Styles */
+        #api h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #api .intro {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        #api .entry-item {
+            margin-bottom: 1.5rem;
+        }
+
+        #api label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        #api input[type="text"],
+        #api input[type="password"],
+        #api input[type="email"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #E5E7EB;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        #api .buttons {
+            margin-top: 2rem;
+            text-align: right;
+        }
+
+        #api .buttons button {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        #api .buttons button:hover {
+            background: #1565C0;
+        }
+
+        .error {
+            color: #DC2626;
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="background_branding_container" data-tenant-branding-background-color="true">
+        <img id="background_background_image" data-tenant-branding-background="true" src="" alt="Illustration" aria-hidden="true" />
+    </div>
+    <div class="panel" id="panel">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="[Your Logo URL]" alt="ContaDeal" width="120">
+            </div>
+            <ul class="steps">
+                <li class="step-item active">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <div>Date utilizator</div>
+                        <small>Completati setarile utilizatorului</small>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <table class="panel_layout" role="presentation">
+            <tbody>
+                <tr class="panel_layout_row">
+                    <td id="panel_center">
+                        <div class="inner_container">
+                            <div class="api_container">
+                                <div id="api" role="main"></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

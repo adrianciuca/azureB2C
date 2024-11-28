@@ -126,17 +126,32 @@
             padding: 0 2rem;
         }
 
+        /* Form container */
         #api .entry-item {
+            display: inline-block;
+            vertical-align: top;
             margin-bottom: 1.5rem;
         }
 
-        #api label {
-            display: block;
-            font-size: 14px;
-            color: #374151;
-            margin-bottom: 0.5rem;
+        /* First row - email, phone, name */
+        #api .entry-item[data-type="email"],
+        #api .entry-item[data-type="phoneNumber"],
+        #api .entry-item[data-type="displayName"] {
+            width: calc(33.33% - 1rem);
+            margin-right: 1rem;
         }
 
+        /* Password fields row */
+        #api .entry-item[data-type="password"],
+        #api .entry-item[data-type="confirmPassword"] {
+            width: calc(50% - 0.5rem);
+        }
+
+        #api .entry-item[data-type="password"] {
+            margin-right: 1rem;
+        }
+
+        /* Input fields */
         #api input[type="text"],
         #api input[type="password"],
         #api input[type="email"],
@@ -147,6 +162,14 @@
             border-radius: 4px;
             font-size: 14px;
             background-color: var(--light-gray);
+        }
+
+        /* Labels */
+        #api label {
+            display: block;
+            font-size: 14px;
+            color: #374151;
+            margin-bottom: 0.5rem;
         }
 
         /* Title styles */

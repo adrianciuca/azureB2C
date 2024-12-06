@@ -39,14 +39,14 @@
         }
 
         .panel_layout {
-            margin-left: 240px;
-            width: calc(100% - 240px);
+            margin-left: 280px;
+            width: calc(100% - 280px);
         }
 
         .sidebar {
-            width: 240px;
+            width: 280px;
             background: var(--dark-bg);
-            padding: 2rem;
+            padding: 32px;
             color: white;
             position: fixed;
             height: 100vh;
@@ -59,16 +59,16 @@
             margin-bottom: 3rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         .logo img {
-            width: 48px;
-            height: 48px;
+            width: 64px;
+            height: 64px;
         }
 
         .logo-text {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 500;
         }
 
@@ -90,7 +90,7 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 32px;
             opacity: 0.6;
         }
 
@@ -108,16 +108,20 @@
             align-items: center;
             justify-content: center;
             font-size: 14px;
+            font-weight: 500;
         }
 
         .step-text {
             font-size: 14px;
+            font-weight: 500;
         }
 
         .step-text small {
             display: block;
-            color: rgba(107, 114, 128, 0.6);
-            margin-top: 0.25rem;
+            color: var(--text-gray);
+            margin-top: 4px;
+            font-size: 14px;
+            font-weight: normal;
         }
 
         #api {
@@ -283,13 +287,6 @@
                     <div class="step-text">
                         <div>Setari facturare</div>
                         <small>Configurare rapida</small>
-                    </div>
-                </li>
-                <li class="step-item">
-                    <div class="step-number">4</div>
-                    <div class="step-text">
-                        <div>Confirmare</div>
-                        <small>Confirma telefonul/adresa de email</small>
                     </div>
                 </li>
             </ul>

@@ -33,42 +33,32 @@
         }
 
         #panel {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
             min-height: 100vh;
         }
 
         .panel_layout {
-            margin-left: 0;
-            width: 100%;
-            padding: 2rem;
+            margin-left: 280px;
+            width: calc(100% - 280px);
         }
 
         .sidebar {
-            position: relative;
-            width: 100%;
-            background: var(--primary-blue);
+            width: 280px;
+            background: var(--dark-bg);
             padding: 2rem;
             color: white;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .sidebar::before {
-            content: '';
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: rgba(25, 118, 210, 0.5);
-            border-radius: 50%;
-            top: -200px;
-            left: -200px;
-            z-index: 0;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 10;
         }
 
         .logo {
-            position: relative;
-            z-index: 1;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .logo img {
@@ -90,20 +80,55 @@
         }
 
         .steps {
-            display: none;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.6;
+        }
+
+        .step-item.active {
+            opacity: 1;
+        }
+
+        .step-number {
+            background: var(--primary-blue);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .step-text {
+            font-size: 14px;
+        }
+
+        .step-text small {
+            display: block;
+            color: var(--text-gray);
+            margin-top: 0.25rem;
         }
 
         #api {
-            max-width: 500px;
-            margin: 4rem 2rem;
-            padding: 0;
+            max-width: 400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
         }
 
         /* Form Styles */
         #api h1 {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 2rem;
+            font-size: 24px;
+            margin-bottom: 1rem;
         }
 
         #api .intro {
@@ -126,9 +151,9 @@
         #api input[type="password"],
         #api input[type="email"] {
             width: 100%;
-            padding: 1rem;
+            padding: 0.75rem;
             border: 1px solid #E5E7EB;
-            border-radius: 8px;
+            border-radius: 4px;
             font-size: 14px;
             margin-bottom: 0.25rem;
         }
@@ -148,10 +173,6 @@
         }
 
         #api .buttons button[type="submit"] {
-            width: 100%;
-            border-radius: 8px;
-            padding: 1rem 2rem;
-            font-weight: bold;
             background: var(--primary-blue);
             color: white;
         }
@@ -182,15 +203,6 @@
         .companyLogo {
             display: none;
         }
-
-        .registration-link {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            text-decoration: none;
-            color: white;
-            z-index: 1;
-        }
     </style>
 </head>
 <body>
@@ -199,7 +211,6 @@
     </div>
     <div class="panel" id="panel">
         <div class="sidebar">
-            <a href="#" class="registration-link">Nu ai cont? Înregistrează-te</a>
             <div class="logo">
                 <img src="https://adrianciuca.github.io/azureB2C/logo.png" alt="ContaDeal">
                 <div class="logo-text">
@@ -207,13 +218,19 @@
                 </div>
             </div>
         </div>
-        <div class="panel_layout">
-            <div class="inner_container">
-                <div class="api_container">
-                    <div id="api" role="main"></div>
-                </div>
-            </div>
-        </div>
+        <table class="panel_layout" role="presentation">
+            <tbody>
+                <tr class="panel_layout_row">
+                    <td id="panel_center">
+                        <div class="inner_container">
+                            <div class="api_container">
+                                <div id="api" role="main"></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

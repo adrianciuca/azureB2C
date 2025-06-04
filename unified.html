@@ -40,6 +40,7 @@
         .panel_layout {
             margin-left: 280px;
             width: calc(100% - 280px);
+            transition: margin-left 0.3s ease;
         }
 
         .sidebar {
@@ -52,6 +53,7 @@
             left: 0;
             top: 0;
             z-index: 10;
+            transition: transform 0.3s ease;
         }
 
         .logo {
@@ -156,12 +158,14 @@
             border-radius: 4px;
             font-size: 14px;
             margin-bottom: 0.25rem;
+            box-sizing: border-box;
         }
 
         #api .buttons {
             display: flex;
             justify-content: space-between;
             margin-top: 2rem;
+            gap: 1rem;
         }
 
         #api .buttons button {
@@ -170,6 +174,7 @@
             border-radius: 4px;
             cursor: pointer;
             border: none;
+            min-height: 44px;
         }
 
         #api .buttons button[type="submit"] {
@@ -203,14 +208,146 @@
         .companyLogo {
             display: none;
         }
+
+        /* Mobile hamburger menu */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 20;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.75rem;
+            cursor: pointer;
+            font-size: 16px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            .panel_layout {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .mobile-overlay.show {
+                display: block;
+            }
+
+            #api {
+                margin: 2rem auto;
+                padding: 0 1rem;
+                max-width: none;
+            }
+
+            /* Stack buttons vertically on mobile */
+            #api .buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            #api .buttons button {
+                width: 100%;
+                padding: 1rem;
+                font-size: 16px;
+            }
+
+            /* Larger touch targets */
+            #api input[type="text"],
+            #api input[type="password"],
+            #api input[type="email"] {
+                padding: 1rem;
+                font-size: 16px;
+                min-height: 44px;
+            }
+
+            /* Adjust logo for mobile */
+            .logo {
+                margin-bottom: 2rem;
+            }
+
+            .logo img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+
+            /* Adjust form title */
+            #api h1 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 100%;
+                padding: 1.5rem;
+            }
+
+            #api {
+                padding: 0 0.75rem;
+            }
+
+            #api h1 {
+                font-size: 18px;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            .sidebar {
+                padding: 24px;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="background_branding_container" data-tenant-branding-background-color="true">
         <img id="background_background_image" data-tenant-branding-background="true" src="" alt="Illustration" aria-hidden="true" />
     </div>
+    
+    <!-- Mobile menu toggle button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu">
+        ☰
+    </button>
+    
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    
     <div class="panel" id="panel">
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <div class="logo">
                 <img src="https://adrianciuca.github.io/azureB2C/logo.png" alt="ContaDeal">
                 <div class="logo-text">
@@ -232,5 +369,48 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            
+            function toggleMobileMenu() {
+                sidebar.classList.toggle('mobile-open');
+                mobileOverlay.classList.toggle('show');
+                
+                // Update button text
+                if (sidebar.classList.contains('mobile-open')) {
+                    mobileMenuToggle.innerHTML = '✕';
+                    mobileMenuToggle.setAttribute('aria-label', 'Close menu');
+                } else {
+                    mobileMenuToggle.innerHTML = '☰';
+                    mobileMenuToggle.setAttribute('aria-label', 'Open menu');
+                }
+            }
+            
+            function closeMobileMenu() {
+                sidebar.classList.remove('mobile-open');
+                mobileOverlay.classList.remove('show');
+                mobileMenuToggle.innerHTML = '☰';
+                mobileMenuToggle.setAttribute('aria-label', 'Open menu');
+            }
+            
+            // Toggle menu when button is clicked
+            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+            
+            // Close menu when overlay is clicked
+            mobileOverlay.addEventListener('click', closeMobileMenu);
+            
+            // Close menu when window is resized to desktop size
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMobileMenu();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
